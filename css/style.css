@@ -143,22 +143,28 @@
   .scroll-bar {
       height: calc(100% - 140px);
       background-color: #e5ddd5;
-      display: flex;
-      justify-content: space-around;
+      padding: 10px 80px;
   }
 
-  .mss-received-container,.mss-sent-container {
-      padding: 10px;
+  .message {
+      display: flex;
+  }
+
+  .mss-container {
       border-radius: 5px;
-      display: flex;
+      padding: 10px;
   }
 
-  .mss-received-container {
+  .received .mss-container {
       background-color: white;
   }
 
-  .mss-sent-container {
+  .sent .mss-container {
       background-color: #dcf8c6;
+  }
+
+  .sent {
+      justify-content: flex-end;
   }
 
   .container-right .top-bar, .container-right .bottom-bar {
