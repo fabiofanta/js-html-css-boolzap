@@ -104,17 +104,17 @@
       justify-content: space-around;
   }
 
-  .mss-received p,.mss-sent p {
+  .mss-received-container,.mss-sent-container {
       padding: 10px;
       border-radius: 5px;
+      display: flex;
+  }
+
+  .mss-received-container {
       background-color: white;
   }
 
-  .mss-received-container p {
-      background-color: white;
-  }
-
-  .mss-sent-container p {
+  .mss-sent-container {
       background-color: #dcf8c6;
   }
 
