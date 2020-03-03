@@ -44,9 +44,14 @@
       padding: 0 20px;
   }
 
-  .left-user img {
+  .avatarStyle-small {
       height: 50px;
       width: 50px;
+  }
+
+  .avatarStyle-big {
+      height: 70px;
+      width: 70px;
   }
 
   .container-right {
@@ -89,4 +94,7 @@
       background-color: white;
       border-bottom: 1px solid lightgray;
       border-top: 1px solid lightgray;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
   }
