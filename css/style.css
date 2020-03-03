@@ -37,6 +37,18 @@
       background-color: white;
   }
 
+  .container-left .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+  }
+
+  .left-user img {
+      height: 50px;
+      width: 50px;
+  }
+
   .container-right {
       width: calc(100% - 350px);
       height: 100%;
@@ -53,12 +65,23 @@
 
   .get-notified-bar {
       height: 120px;
-      background-color: rgba(0,0,0,0.2);
+      background-color: #9de1fe;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
   }
 
   .search-chat-bar{
       height: 60px;
       background-color: rgb(237, 237, 237);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+  }
+
+  .input-bar p:before {
+      content: "\f002";
+      font-family: "Font Awesome 5 Free";
   }
 
   .chat {
