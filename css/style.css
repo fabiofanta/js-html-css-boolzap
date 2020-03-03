@@ -32,13 +32,22 @@
   }
 
   .container-left {
-      width: 300px;
+      width: 350px;
       height: 100%;
       background-color: white;
   }
 
   .container-right {
-      width: 900px;
+      width: calc(100% - 350px);
       height: 100%;
       background-color: red;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
+  [class*="bar"] {
+      height: 70px;
+      width: 100%;
+      background-color: rgb(237, 237, 237);
   }
