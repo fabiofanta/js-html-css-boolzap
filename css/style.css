@@ -23,7 +23,6 @@
   .container {
       width: 1100px;
       height: calc(100% - 30px);
-      background-color: red;
       position: absolute;
       top: 15px;
       left: 50%;
@@ -57,7 +56,6 @@
   .container-right {
       width: calc(100% - 350px);
       height: 100%;
-      background-color: red;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -95,6 +93,33 @@
       border-bottom: 1px solid lightgray;
       border-top: 1px solid lightgray;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .scroll-bar {
+      height: calc(100% - 140px);
+      background-color: #e5ddd5;
+      display: flex;
       justify-content: space-around;
+  }
+
+  .mss-received p,.mss-sent p {
+      padding: 10px;
+      border-radius: 5px;
+      background-color: white;
+  }
+
+  .mss-received-container p {
+      background-color: white;
+  }
+
+  .mss-sent-container p {
+      background-color: #dcf8c6;
+  }
+
+  .container-right .top-bar, .container-right .bottom-bar {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
   }
