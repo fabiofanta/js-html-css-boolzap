@@ -21,12 +21,24 @@
   }
 
   .container {
-      width: 70%;
+      width: 1100px;
       height: calc(100% - 30px);
       background-color: red;
       position: absolute;
       top: 15px;
       left: 50%;
       transform: translateX(-50%);
-      margin:
+      display: flex;
+  }
+
+  .container-left {
+      width: 300px;
+      height: 100%;
+      background-color: white;
+  }
+
+  .container-right {
+      width: 900px;
+      height: 100%;
+      background-color: red;
   }
