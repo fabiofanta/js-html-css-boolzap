@@ -167,6 +167,15 @@
       align-items: center;
   }
 
+  .container-right .top-bar {
+      color: grey;
+      font-size: 22px;
+  }
+
+  .container-right .top-bar i {
+      padding-left: 30px;
+  }
+
   .bottom-bar {
       font-size: 28px;
       color: gray;
