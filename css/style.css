@@ -46,8 +46,24 @@
       justify-content: space-between;
   }
 
-  [class*="bar"] {
+  .std-bar {
       height: 70px;
-      width: 100%;
       background-color: rgb(237, 237, 237);
+  }
+
+  .get-notified-bar {
+      height: 120px;
+      background-color: rgba(0,0,0,0.2);
+  }
+
+  .search-chat-bar{
+      height: 60px;
+      background-color: rgb(237, 237, 237);
+  }
+
+  .chat {
+      height: 80px;
+      background-color: white;
+      border-bottom: 1px solid lightgray;
+      border-top: 1px solid lightgray;
   }
