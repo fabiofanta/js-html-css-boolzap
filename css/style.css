@@ -21,12 +21,12 @@
   }
 
   .container {
-      width: 500px;
-      max-width: 500px;
-      height: 500px;
+      width: 70%;
+      height: calc(100% - 30px);
       background-color: red;
       position: absolute;
-      top: 75px;
+      top: 15px;
       left: 50%;
       transform: translateX(-50%);
+      margin:
   }
