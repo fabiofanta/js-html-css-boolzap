@@ -101,7 +101,7 @@
   }
 
   .cta-notify p {
-      font-size: 18px;
+      font-size: 17px;
   }
 
   .cta-notify a {
@@ -157,6 +157,20 @@
        padding-left: 20px;
   }
 
+  .chat-name {
+      font-size: 22px;
+  }
+
+  .chat-preview {
+      font-size: 15px;
+  }
+
+  .right-chat {
+      text-align: right;
+      color: gray;
+      font-size: 13px;
+  }
+
   .scroll-bar {
       height: calc(100% - 140px);
       background-color: #e5ddd5;
@@ -170,6 +184,15 @@
   .mss-container {
       border-radius: 5px;
       padding: 10px;
+      display: flex;
+  }
+
+  .mss-container p:last-child {
+      font-size: 13px;
+      color: gray;
+      padding-left: 10px;
+      position: relative;
+      top: 10px;
   }
 
   .received .mss-container {
