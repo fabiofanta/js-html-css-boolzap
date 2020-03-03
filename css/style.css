@@ -136,7 +136,13 @@
       border-bottom: 1px solid lightgray;
       border-top: 1px solid lightgray;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .left-chat {
+      display: flex;
+      justify-content: center;
       align-items: center;
   }
 
@@ -167,7 +173,7 @@
       justify-content: flex-end;
   }
 
-  .container-right .top-bar, .container-right .bottom-bar {
+  .container-right .top-bar, .container-right .bottom-bar, .left-chat-open {
       display: flex;
       justify-content: space-between;
       align-items: center;
