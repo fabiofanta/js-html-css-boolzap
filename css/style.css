@@ -4,8 +4,16 @@
     box-sizing: border-box;
   }
 
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
   a {
       text-decoration: none;
+  }
+
+  i {
+      cursor: pointer;
   }
 
   .container-fullwidth {
@@ -54,7 +62,6 @@
 
   .right-buttons i {
       padding: 0 10px;
-      cursor: pointer;
   }
 
   .avatarStyle-small {
@@ -146,6 +153,10 @@
       align-items: center;
   }
 
+  .chat-detail {
+       padding-left: 20px;
+  }
+
   .scroll-bar {
       height: calc(100% - 140px);
       background-color: #e5ddd5;
@@ -182,6 +193,19 @@
   .container-right .top-bar {
       color: grey;
       font-size: 22px;
+  }
+
+  .detail-chat-open {
+      padding-left: 20px;
+  }
+
+  .name-chat-open {
+      color: black;
+  }
+
+  .preview-chat-open {
+      color: gray;
+      font-size: 15px;
   }
 
   .container-right .top-bar i {
