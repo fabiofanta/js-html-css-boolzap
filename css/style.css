@@ -271,6 +271,7 @@
 
   .detail-chat-open {
       padding-left: 20px;
+      cursor: pointer;
   }
 
   .name-chat-open {
