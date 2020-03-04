@@ -103,11 +103,11 @@
   .bell-icon {
       border-radius: 50%;
       background-color: white;
-      padding: 20px;
+      padding: 13px;
   }
 
   .cta-notify {
-      padding-left: 40px;
+      padding-left: 15px;
   }
 
   .cta-notify p {
@@ -115,8 +115,20 @@
   }
 
   .cta-notify a {
-      font-size: 16px;
+      font-size: 15px;
       color: black;
+  }
+
+  .cta-notify a::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f105";
+      position: relative;
+      top: 1px;
+  }
+
+  .cta-notify a:hover {
+      border-bottom: 1px solid black;
   }
 
   .search-chat-bar {
@@ -143,8 +155,9 @@
   }
 
   .input-bar p:before {
-      content: "\f002";
       font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f002";
       padding-right: 40px;
   }
 
