@@ -96,8 +96,18 @@
   }
 
   .get-notified-bar i {
-      padding-right: 40px;
       font-size: 25px;
+      color: #9de1fe;
+  }
+
+  .bell-icon {
+      border-radius: 50%;
+      background-color: white;
+      padding: 20px;
+  }
+
+  .cta-notify {
+      padding-left: 40px;
   }
 
   .cta-notify p {
@@ -135,6 +145,7 @@
   .input-bar p:before {
       content: "\f002";
       font-family: "Font Awesome 5 Free";
+      padding-right: 40px;
   }
 
   .chat {
