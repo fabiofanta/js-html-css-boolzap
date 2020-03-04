@@ -67,12 +67,15 @@
   .avatarStyle-small {
       height: 50px;
       width: 50px;
+      cursor: pointer;
       display: block;
   }
 
   .avatarStyle-big {
       height: 70px;
       width: 70px;
+      cursor: pointer;
+      display: block;
   }
 
   .container-right {
@@ -104,7 +107,7 @@
   .bell-icon {
       border-radius: 50%;
       background-color: white;
-      padding: 13px;
+      padding: 14px 13px;
   }
 
   .cta-notify {
@@ -175,6 +178,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
   }
 
   .chat:hover {
@@ -215,6 +219,7 @@
 
   .right-chat i:last-child {
       visibility: hidden;
+      font-size: 25px;
   }
 
   .scroll-bar {
