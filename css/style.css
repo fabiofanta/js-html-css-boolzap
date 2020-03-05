@@ -136,7 +136,7 @@
   }
 
   .search-chat-bar input {
-      display: none;
+      display: inline;
   }
 
   .input-bar {

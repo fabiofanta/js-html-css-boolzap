@@ -15,6 +15,21 @@ $(document).ready(function() {
             $(".mss-scroll-bar").append(messageReceived);
         },1000);
     });
+    $("#contact-search").keyup(function(event) {
+        var type = $(this).val().toLowerCase();
+        console.log(type);
+        $(".chat-name").each(function() {
+            console.log($(this).text());
+            if ($(this).text().toLowerCase().includes(type)) {
+                $(this).parents('.chat').show();
+            } else {
+                $(this).parents('.chat').hide();
+            }
+        })
+    })
+
+
+
 
 });
 
