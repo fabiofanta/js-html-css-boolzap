@@ -228,6 +228,10 @@
       display: flex;
   }
 
+  .message.sent {
+      margin-bottom: 5px;
+  }
+
   .mss-container {
       border-radius: 5px;
       padding: 10px;
@@ -280,3 +284,7 @@
       width: calc(100% - 80px);
   }
   /* end right side */
+
+  .template {
+      display: none;
+  }
