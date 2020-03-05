@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    $(".input-bar i").click(function() {  // input search bar
+// input search bar
+
+    $(".input-bar i").click(function() {
         addRemoveClass();
     });
 
@@ -10,10 +12,21 @@ $(document).ready(function() {
 
     var timer = time();
 
+// messages sent/received
+
     $("#microphone").click(function() {
-        sentMessages(); // messages sent
-        receivedMessages(); // messages received
+        sentMessages();
+        receivedMessages();
     });
+
+    $("#message-input").keyup(function(event) {
+        if (event.which == 13) {
+            sentMessages();
+            receivedMessages();
+    };
+    });
+
+// input search bar filter
 
     $("#contact-search").keyup(function(event) {
         var type = $(this).val().toLowerCase();
