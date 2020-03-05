@@ -65,6 +65,12 @@ function time() {
     var date = new Date();
     var hours = date.getHours();
     var minutes = date.getMinutes();
-    var hoursMinutes = hours + ":" + minutes;
+
+    if (minutes < 10) {
+        var hoursMinutes = hours + ":" + 0 + "" + minutes;
+    } else {
+        var hoursMinutes = hours + ":" + minutes;
+    };
+
     return hoursMinutes;
 };
