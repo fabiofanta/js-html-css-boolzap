@@ -19,6 +19,7 @@ $(document).ready(function() {
         messageSent.find('.testo-messaggio').text(nomeInput);
         messageSent.find('.orario').text(timer);
         $(".mss-scroll-bar").append(messageSent);
+        
         setTimeout(function() {  // messages received
             var messageReceived = $('.template .message.received').clone();
             messageReceived.find('.testo-messaggio').text("Ok");
