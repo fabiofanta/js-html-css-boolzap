@@ -243,14 +243,23 @@
       background-color: #e5ddd5;
       padding: 10px 80px;
       background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/whatsapp-chat-background.jpg');
+      overflow: auto;
   }
 
   .message {
       display: flex;
   }
 
-  .message.sent {
+  .sent {
+      justify-content: flex-end;
+  }
+
+  .message.sent,.message.received {
       margin-bottom: 5px;
+  }
+
+  .sent .mss-container {
+      background-color: #dcf8c6;
   }
 
   .mss-container {
@@ -269,14 +278,6 @@
 
   .received .mss-container {
       background-color: white;
-  }
-
-  .sent .mss-container {
-      background-color: #dcf8c6;
-  }
-
-  .sent {
-      justify-content: flex-end;
   }
 
   .detail-chat-open {

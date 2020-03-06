@@ -53,12 +53,20 @@ function createMsg() {
     $("#message-input").val('');
     if (nomeInput !='') {
         messagesSender("sent",nomeInput);
+        scrollLastItem('.mss-scroll-bar');
         setTimeout(function () {
             messagesSender("received","Ok");
+            scrollLastItem('.mss-scroll-bar');
         }, 1000);
+
     }
 
 }
+
+function scrollLastItem(element) {
+    var pixelScroll = $(element).prop('scrollHeight');
+    $(element).scrollTop(pixelScroll);
+};
 
 function addRemoveClass() {
     $(".input-bar").removeClass("show");
