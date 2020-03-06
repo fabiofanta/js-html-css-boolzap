@@ -6,7 +6,6 @@ $(document).ready(function() {
         toggleIcon();
     });
 
-
 // input search bar
 
     $(".input-bar i").click(function() {
@@ -34,14 +33,14 @@ $(document).ready(function() {
 
     $("#contact-search").keyup(function(event) {
         var type = $(this).val().toLowerCase();
-        console.log(type);
+        // console.log(type);
         $('.chat').removeClass("hide show");
-        $(".chat-name").each(function() {
-            console.log($(this).text());
-            if ($(this).text().toLowerCase().includes(type)) {
-                $(this).parents('.chat').addClass("show");
+        $('.chat').each(function() {
+            // console.log($(this).text());
+            if ($(this).find('.chat-name').text().toLowerCase().includes(type)) {
+                $(this).addClass("show");
             } else {
-                $(this).parents('.chat').addClass("hide");
+                $(this).addClass("hide");
             }
         });
     });
@@ -51,7 +50,7 @@ function toggleIcon() {
     if ($('#message-input').val().length > 0 ) {
         $('#microphone').removeClass('fas fa-microphone');
         $('#microphone').addClass('fas fa-paper-plane');
-        console.log($('#message-input').val().length);
+        // console.log($('#message-input').val().length);
     } else {
         $('#microphone').removeClass('fas fa-paper-plane');
         $('#microphone').addClass('fas fa-microphone');
