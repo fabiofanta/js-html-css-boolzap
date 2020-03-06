@@ -10,19 +10,15 @@ $(document).ready(function() {
         addRemoveClassSelect();
     });
 
-    var timer = time();
-
 // messages sent/received
 
     $("#microphone").click(function() {
-        sentMessages();
-        receivedMessages();
+        createMsg();
     });
 
     $("#message-input").keypress(function(event) {
         if (event.keyCode == 13) {
-            sentMessages();
-            receivedMessages();
+            createMsg();
     };
     });
 
@@ -43,24 +39,25 @@ $(document).ready(function() {
     })
 });
 
-function sentMessages() {
-    var nomeInput = $("#message-input").val();
-    $("#message-input").val('');
+function messagesSender(sentReceived,text) {
     var timer = time();
-    var messageSent = $('.template .message.sent').clone();
-    messageSent.find('.testo-messaggio').text(nomeInput);
-    messageSent.find('.orario').text(timer);
-    $(".mss-scroll-bar").append(messageSent);
+    var message = $('.template .message').clone();
+    message.addClass(sentReceived);
+    message.find('.mss-text').text(text);
+    message.find('.timestamp').text(timer);
+    $(".mss-scroll-bar").append(message);
 };
 
-function receivedMessages() {
-    setTimeout(function() {
-        var timer = time();
-        var messageReceived = $('.template .message.received').clone();
-        messageReceived.find('.testo-messaggio').text("Ok");
-        messageReceived.find('.orario').text(timer);
-        $(".mss-scroll-bar").append(messageReceived);
-    },1000);
+function createMsg() {
+    var nomeInput = $("#message-input").val().trim();
+    $("#message-input").val('');
+    if (nomeInput !='') {
+        messagesSender("sent",nomeInput);
+        setTimeout(function () {
+            messagesSender("received","Ok");
+        }, 1000);
+    }
+
 }
 
 function addRemoveClass() {
