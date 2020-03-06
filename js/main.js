@@ -71,7 +71,7 @@ function addRemoveClass() {
 function addRemoveClassSelect() {
     $(".input-bar").removeClass("hide");
     $(".input-bar").addClass("show");
-    $("#contact-search").select();
+    $("#contact-search").focus();
 };
 
 function time() {
