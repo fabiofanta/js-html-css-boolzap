@@ -19,8 +19,8 @@ $(document).ready(function() {
         receivedMessages();
     });
 
-    $("#message-input").keyup(function(event) {
-        if (event.which == 13) {
+    $("#message-input").keypress(function(event) {
+        if (event.keyCode == 13) {
             sentMessages();
             receivedMessages();
     };
