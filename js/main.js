@@ -20,12 +20,14 @@ $(document).ready(function() {
 
     $("#microphone").click(function() {
         createMsg();
+        toggleIcon();
     });
 
     $("#message-input").keyup(function(event) {
         toggleIcon();
         if (event.keyCode == 13) {
             createMsg();
+            toggleIcon();
     };
     });
 
@@ -44,7 +46,7 @@ $(document).ready(function() {
             }
         });
     });
-
+// select chat
     $('.chat').click(function() {
         var self = $(this);
         $('.mss-scroll-bar').each(function() {
@@ -74,7 +76,7 @@ function messagesSender(sentReceived,text) {
     message.addClass(sentReceived);
     message.find('.mss-text').text(text);
     message.find('.timestamp').text(timer);
-    $(".mss-scroll-bar").append(message);
+    $(".mss-scroll-bar.active").append(message);
 };
 
 function createMsg() {
@@ -82,10 +84,10 @@ function createMsg() {
     $("#message-input").val('');
     if (nomeInput !='') {
         messagesSender("sent",nomeInput);
-        scrollLastItem('.mss-scroll-bar');
+        scrollLastItem('.mss-scroll-bar.active');
         setTimeout(function () {
             messagesSender("received","Ok");
-            scrollLastItem('.mss-scroll-bar');
+            scrollLastItem('.mss-scroll-bar.active');
         }, 1000);
     }
 }
