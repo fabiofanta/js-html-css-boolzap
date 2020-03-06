@@ -305,6 +305,20 @@
       border-radius: 20px;
       width: calc(100% - 80px);
   }
+
+  .right-icon,.left-icon {
+      width: 30px;
+      height: 30px;
+      position: relative;
+  }
+
+  .bottom-bar i {
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+  }
   /* end right side */
 
   .template {

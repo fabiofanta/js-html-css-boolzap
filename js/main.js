@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    toggleIcon();
+
+    $('#message-input').focus(function () {
+        toggleIcon();
+    });
+
+
 // input search bar
 
     $(".input-bar i").click(function() {
@@ -16,7 +23,8 @@ $(document).ready(function() {
         createMsg();
     });
 
-    $("#message-input").keypress(function(event) {
+    $("#message-input").keyup(function(event) {
+        toggleIcon();
         if (event.keyCode == 13) {
             createMsg();
     };
@@ -35,9 +43,21 @@ $(document).ready(function() {
             } else {
                 $(this).parents('.chat').addClass("hide");
             }
-        })
-    })
+        });
+    });
 });
+
+function toggleIcon() {
+    if ($('#message-input').val().length > 0 ) {
+        $('#microphone').removeClass('fas fa-microphone');
+        $('#microphone').addClass('fas fa-paper-plane');
+        console.log($('#message-input').val().length);
+    } else {
+        $('#microphone').removeClass('fas fa-paper-plane');
+        $('#microphone').addClass('fas fa-microphone');
+    };
+};
+
 
 function messagesSender(sentReceived,text) {
     var timer = time();
@@ -58,9 +78,7 @@ function createMsg() {
             messagesSender("received","Ok");
             scrollLastItem('.mss-scroll-bar');
         }, 1000);
-
     }
-
 }
 
 function scrollLastItem(element) {
