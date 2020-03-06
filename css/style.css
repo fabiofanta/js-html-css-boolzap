@@ -244,6 +244,11 @@
       padding: 10px 80px;
       background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/whatsapp-chat-background.jpg');
       overflow: auto;
+      display: none;
+  }
+
+  .mss-scroll-bar.active {
+      display: block;
   }
 
   .message {

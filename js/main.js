@@ -44,6 +44,16 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('.chat').click(function() {
+        var self = $(this);
+        $('.mss-scroll-bar').each(function() {
+            if ($(this).data('chat') == self.data('chat') ) {
+                $('.mss-scroll-bar').removeClass('active');
+                $(this).addClass('active');
+            }
+        })
+    })
 });
 
 function toggleIcon() {
