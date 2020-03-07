@@ -299,6 +299,20 @@
       background-color: white;
   }
 
+  .dropdown-menu {
+      padding: 10px;
+      position: absolute;
+      top: 30px;
+      background-color: #ededed;
+      box-shadow: 1px 1px lightgray;
+      display: none;
+  }
+
+  .dropdown-menu .mss-info {
+      padding: 10px 10px;
+      font-size: 0.9em;
+  }
+
   .detail-chat-open {
       padding-left: 20px;
       cursor: pointer;
@@ -350,4 +364,8 @@
 
   .hide {
       display: none;
+  }
+
+  .open {
+      display: block;
   }

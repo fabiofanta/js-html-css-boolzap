@@ -57,6 +57,20 @@ $(document).ready(function() {
             }
         })
     })
+
+// dropdown menu
+    $('.mss-container i').click(function() {
+        $(this).siblings('.dropdown-menu').toggleClass('open');
+    })
+
+    $('body').dblclick(function() {
+        $('.dropdown-menu').removeClass('open');
+    })
+
+// delete messages
+    $('.test').click(function() {
+        $(this).parents('.mss-container').hide();
+    })
 });
 
 function chatLink(position) {
