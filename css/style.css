@@ -273,12 +273,24 @@
       display: flex;
   }
 
-  .mss-container p:last-child {
+  .mss-container .timestamp {
       color: gray;
       padding-left: 10px;
       position: relative;
       top: 10px;
       font-size: 0.8em;
+  }
+
+  .mss-container i {
+      display: none;
+      position: relative;
+      bottom: 10px;
+      font-size: 1.2em;
+      color: grey;
+  }
+
+  .mss-container:hover  i  {
+      display: block;
   }
 
   .received .mss-container {
