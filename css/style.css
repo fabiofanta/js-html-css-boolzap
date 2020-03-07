@@ -271,6 +271,7 @@
       border-radius: 5px;
       padding: 10px;
       display: flex;
+      position: relative;
   }
 
   .mss-container .timestamp {
@@ -283,8 +284,9 @@
 
   .mss-container i {
       display: none;
-      position: relative;
-      bottom: 10px;
+      position: absolute;
+      top: 0;
+      right: 5px;
       font-size: 1.2em;
       color: grey;
   }
