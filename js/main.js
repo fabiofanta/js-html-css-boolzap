@@ -92,7 +92,7 @@ function chatLink(position) {
     var chatInfoName = $(position).find('.chat-name').text();
     var chatInfoLastSeen = $(position).find('.chat-last-update').text();
     var chatInfoPic = $(position).find('.left-chat img').attr('src');
-    console.log(chatInfoPic);
+    // console.log(chatInfoPic);
     $('.name-chat-open').text(chatInfoName);
     $('.preview-chat-open').text("last seen today at " + chatInfoLastSeen);
     $('.left-chat-open img').attr("src",chatInfoPic);
