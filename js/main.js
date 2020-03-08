@@ -60,17 +60,24 @@ $(document).ready(function() {
 
 // dropdown menu
     $(document).on('click','.mss-container i',function() {
-        $(this).siblings('.dropdown-menu').toggleClass('open');
-    })
+        if ($(this).siblings('.dropdown-menu').hasClass('open')) {
+            $(this).siblings('.dropdown-menu').toggleClass('open');
+            scrollLastItem('.mss-scroll-bar.active');
+        } else {
+            $('.dropdown-menu').removeClass('open');
+            $(this).siblings('.dropdown-menu').toggleClass('open');
+            scrollLastItem('.mss-scroll-bar.active');
+        };
+    });
 
     $('body').dblclick(function() {
         $('.dropdown-menu').removeClass('open');
-    })
+    });
 
 // delete messages
-    $('.mss-delete').click(function() {
+    $(document).on('click','.mss-delete',function() {
         $(this).parents('.mss-container').hide();
-    })
+    });
 });
 
 function chatLink(position) {

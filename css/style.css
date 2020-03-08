@@ -301,8 +301,10 @@
 
   .dropdown-menu {
       padding: 10px;
+      width: 141px;
       position: absolute;
       top: 30px;
+      left: 0;
       background-color: #ededed;
       box-shadow: 1px 1px lightgray;
       display: none;
