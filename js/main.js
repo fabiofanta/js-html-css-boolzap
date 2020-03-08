@@ -59,7 +59,7 @@ $(document).ready(function() {
     })
 
 // dropdown menu
-    $('.mss-container i').click(function() {
+    $(document).on('click','.mss-container i',function() {
         $(this).siblings('.dropdown-menu').toggleClass('open');
     })
 
