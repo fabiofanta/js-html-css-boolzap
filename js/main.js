@@ -68,7 +68,7 @@ $(document).ready(function() {
     })
 
 // delete messages
-    $('.test').click(function() {
+    $('.mss-delete').click(function() {
         $(this).parents('.mss-container').hide();
     })
 });
