@@ -47,6 +47,7 @@ $(document).ready(function() {
         });
     });
 // select chat
+
     $('.chat').click(function() {
         var self = $(this);
         $('.mss-scroll-bar').each(function() {
@@ -59,6 +60,7 @@ $(document).ready(function() {
     });
 
 // dropdown menu
+
     $(document).on('click','.mss-container i',function() {
         alternateOpening($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
         scrollLastItem('.mss-scroll-bar.active');
@@ -69,10 +71,13 @@ $(document).ready(function() {
     });
 
 // delete messages
+
     $(document).on('click','.mss-delete',function() {
         $(this).parents('.mss-container').hide();
     });
 });
+
+// functions
 
 function alternateOpening(clickedSelector,selector,toggClass) {
     if (clickedSelector.hasClass(toggClass)) {
