@@ -43,7 +43,7 @@ $(document).ready(function() {
                 $(this).addClass("show");
             } else {
                 $(this).addClass("hide");
-            }
+            };
         });
     });
 // select chat
@@ -54,20 +54,14 @@ $(document).ready(function() {
                 $('.mss-scroll-bar').removeClass('active');
                 $(this).addClass('active');
                 chatLink(self);
-            }
-        })
-    })
+            };
+        });
+    });
 
 // dropdown menu
     $(document).on('click','.mss-container i',function() {
-        if ($(this).siblings('.dropdown-menu').hasClass('open')) {
-            $(this).siblings('.dropdown-menu').toggleClass('open');
-            scrollLastItem('.mss-scroll-bar.active');
-        } else {
-            $('.dropdown-menu').removeClass('open');
-            $(this).siblings('.dropdown-menu').toggleClass('open');
-            scrollLastItem('.mss-scroll-bar.active');
-        };
+        alternateOpening($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
+        scrollLastItem('.mss-scroll-bar.active');
     });
 
     $('body').dblclick(function() {
@@ -80,6 +74,15 @@ $(document).ready(function() {
     });
 });
 
+function alternateOpening(clickedSelector,selector,toggClass) {
+    if (clickedSelector.hasClass(toggClass)) {
+        clickedSelector.toggleClass(toggClass);
+    } else {
+        selector.removeClass(toggClass);
+        clickedSelector.toggleClass(toggClass);
+    };
+};
+
 function chatLink(position) {
     var chatInfoName = $(position).find('.chat-name').text();
     var chatInfoLastSeen = $(position).find('.chat-last-update').text();
@@ -88,7 +91,7 @@ function chatLink(position) {
     $('.name-chat-open').text(chatInfoName);
     $('.preview-chat-open').text("last seen today at " + chatInfoLastSeen);
     $('.left-chat-open img').attr("src",chatInfoPic);
-}
+};
 
 function toggleIcon() {
     if ($('#message-input').val().length > 0 ) {
@@ -121,8 +124,8 @@ function createMsg() {
             messagesSender("received","Ok");
             scrollLastItem('.mss-scroll-bar.active');
         }, 1000);
-    }
-}
+    };
+};
 
 function scrollLastItem(element) {
     var pixelScroll = $(element).prop('scrollHeight');

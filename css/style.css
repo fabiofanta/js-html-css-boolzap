@@ -304,7 +304,7 @@
       width: 141px;
       position: absolute;
       top: 30px;
-      left: 0;
+      left: -2px;
       background-color: #ededed;
       box-shadow: 1px 1px lightgray;
       display: none;
