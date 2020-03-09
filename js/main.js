@@ -63,11 +63,15 @@ $(document).ready(function() {
 
     $(document).on('click','.mss-container i',function(event) {
         alternateOpening($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
+        event.stopPropagation();
         console.log($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
         scrollLastItem('.mss-scroll-bar.active');
+
     });
 
-    $('body').dblclick(function() {
+// dropdown closing by clicking the entire body tag
+
+    $(document).on('click','body',function() {
         $('.dropdown-menu.open').toggleClass('open');
         console.log($('.dropdown-menu.open').toggleClass('open'));
     });
