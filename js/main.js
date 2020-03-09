@@ -61,13 +61,15 @@ $(document).ready(function() {
 
 // dropdown menu
 
-    $(document).on('click','.mss-container i',function() {
+    $(document).on('click','.mss-container i',function(event) {
         alternateOpening($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
+        console.log($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
         scrollLastItem('.mss-scroll-bar.active');
     });
 
     $('body').dblclick(function() {
-        $('.dropdown-menu').removeClass('open');
+        $('.dropdown-menu.open').toggleClass('open');
+        console.log($('.dropdown-menu.open').toggleClass('open'));
     });
 
 // delete messages
