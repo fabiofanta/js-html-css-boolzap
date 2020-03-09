@@ -86,7 +86,7 @@
       transform: translateX(-50%);
       display: flex;
   }
-  
+
  /* end main container */
  /* start left side */
   .container-left {
@@ -275,11 +275,16 @@
       position: relative;
   }
 
+  .mss-container .mss-text {
+      padding-right: 40px;
+  }
+
   .mss-container .timestamp {
       color: gray;
       padding-left: 10px;
-      position: relative;
-      top: 10px;
+      position: absolute;
+      bottom: 0px;
+      right: 5px;
       font-size: 0.8em;
   }
 
