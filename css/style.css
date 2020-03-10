@@ -262,6 +262,7 @@
 
   .message.sent,.message.received {
       margin-bottom: 5px;
+
   }
 
   .sent .mss-container {
@@ -273,10 +274,12 @@
       padding: 10px;
       display: flex;
       position: relative;
+
   }
 
   .mss-container .mss-text {
       padding-right: 40px;
+
   }
 
   .mss-container .timestamp {
