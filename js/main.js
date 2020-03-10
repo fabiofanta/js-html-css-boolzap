@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     $("#contact-search").keyup(function(event) {
         var type = $(this).val().toLowerCase();
-        // console.log(type);
+        console.log(type);
         $('.chat').removeClass("hide show");
         $('.chat').each(function() {
             // console.log($(this).text());
@@ -176,6 +176,7 @@ function scrollLastItem(element) {
 function addRemoveClass() {
     $(".input-bar").removeClass("show");
     $(".input-bar").addClass("hide");
+    $("#contact-search").val('').off('keyup');
 };
 
 function addRemoveClassSelect() {
