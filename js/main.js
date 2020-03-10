@@ -92,12 +92,15 @@ function timestamp() {
     $('.chat').each(function() {
         var dataNumbers = $(this).data('chat');
         // console.log(timeChat);
-        var timeStampOpenChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find('.message.received:last-child .timestamp').text();
-        console.log(timeStampOpenChat);
+        var timeStampOpenChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find('.message:last-child .timestamp').text();
+        // console.log(timeStampOpenChat);
         var timeStampChat = $('.chat[data-chat*='+ dataNumbers +']').find('.chat-last-update');
         // console.log(timeStampChat);
         if (timeStampOpenChat != "") {
             timeStampChat.text(timeStampOpenChat);
+        var timeStampOpenChatActive = $('.mss-scroll-bar.active').find('.message.received:last-child .timestamp').text();
+        $('.preview-chat-open').text("last seen today at " + timeStampOpenChatActive);
+
         };
     });
 };
