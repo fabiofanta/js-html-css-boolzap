@@ -8,12 +8,12 @@ $(document).ready(function() {
 
 // input search bar
 
-    $(".input-bar i").click(function() { //appear-disappear input search bar
-        addRemoveClass();
+    $(".input-bar-fake").click(function() {
+    openInputMenu(); // open Input Menu
     });
 
-    $(".input-bar-fake").click(function() {
-        addRemoveClassSelect();
+    $(".input-bar i").click(function() {
+        closeInputMenu(); // close Input Menu
     });
 
 // messages sent/received
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     $("#contact-search").keyup(function(event) {
         var type = $(this).val().toLowerCase();
-        console.log(type);
+        // console.log(type);
         $('.chat').removeClass("hide show");
         $('.chat').each(function() {
             // console.log($(this).text());
@@ -173,15 +173,20 @@ function scrollLastItem(element) {
     $(element).scrollTop(pixelScroll);
 };
 
-function addRemoveClass() {
-    $(".input-bar").removeClass("show");
-    $(".input-bar").addClass("hide");
-    $("#contact-search").val('').off('keyup');
+function addRemoveClass(add,remove) {
+    $(".input-bar").removeClass(remove);
+    $(".input-bar").addClass(add);
+}
+
+function closeInputMenu() {
+    addRemoveClass("hide","show")
+    $("#contact-search").val('');
+    $(".chat").removeClass("hide");
+    $(".chat").addClass("show");
 };
 
-function addRemoveClassSelect() {
-    $(".input-bar").removeClass("hide");
-    $(".input-bar").addClass("show");
+function openInputMenu() {
+    addRemoveClass("show","hide")
     $("#contact-search").focus();
 };
 
