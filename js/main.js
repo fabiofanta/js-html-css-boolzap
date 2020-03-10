@@ -87,7 +87,6 @@ $(document).ready(function() {
 
 });
 
-
 // functions
 
 function updateChatElement(fromElement,toElement) {
