@@ -41,7 +41,7 @@ $(document).ready(function() {
         $('.chat').removeClass("hide show");
         $('.chat').each(function() {
             // console.log($(this).text());
-            if ($(this).find('.chat-name').text().toLowerCase().includes(type)) {
+            if ($(this).find('.chat-detail').text().toLowerCase().includes(type)) {
                 $(this).addClass("show");
             } else {
                 $(this).addClass("hide");
@@ -68,7 +68,7 @@ $(document).ready(function() {
         alternateOpening($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
         event.stopPropagation();
         // console.log($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
-        scrollLastItem('.mss-scroll-bar.active'); 
+        scrollLastItem('.mss-scroll-bar.active');
 
     });
 
@@ -103,6 +103,20 @@ function timestamp() {
         var timeStampOpenChatActive = $('.mss-scroll-bar.active').find('.message.received:last-child .timestamp').text();
         $('.preview-chat-open').text("last seen today at " + timeStampOpenChatActive);
 
+        };
+    });
+};
+
+function lastChatTextUpdate() {
+    $('.chat').each(function() {
+        var dataNumbers = $(this).data('chat');
+        // console.log(timeChat);
+        var lastChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find('.message:last-child .mss-text').text();
+        // console.log(timeStampOpenChat);
+        var chatPreview = $('.chat[data-chat*='+ dataNumbers +']').find('.chat-preview');
+        // console.log(timeStampChat);
+        if (chatPreview != "") {
+            chatPreview.text(lastChat);
         };
     });
 };
@@ -157,6 +171,7 @@ function createMsg() {
             messagesSender("received","Ok");
             scrollLastItem('.mss-scroll-bar.active');
             timestamp();
+            lastChatTextUpdate();
         }, 1000);
     };
 };
