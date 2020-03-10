@@ -269,16 +269,20 @@
       background-color: #dcf8c6;
   }
 
+
+
   .mss-container {
       border-radius: 5px;
       padding: 10px;
       display: flex;
       position: relative;
+      max-width: 60%;
 
   }
 
   .mss-container .mss-text {
       padding-right: 40px;
+      word-wrap: anywhere;
 
   }
 
