@@ -90,36 +90,29 @@ $(document).ready(function() {
 
 // functions
 
-function timestamp() {
+function updateChatElement(fromElement,toElement) {
     $('.chat').each(function() {
         var dataNumbers = $(this).data('chat');
         // console.log(timeChat);
-        var timeStampOpenChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find('.message:last-child .timestamp').text();
+        var takeElementToOpenChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find(fromElement).text();
         // console.log(timeStampOpenChat);
-        var timeStampChat = $('.chat[data-chat*='+ dataNumbers +']').find('.chat-last-update');
+        var putElementToPreview = $('.chat[data-chat*='+ dataNumbers +']').find(toElement);
         // console.log(timeStampChat);
-        if (timeStampOpenChat != "") {
-            timeStampChat.text(timeStampOpenChat);
-        var timeStampOpenChatActive = $('.mss-scroll-bar.active').find('.message.received:last-child .timestamp').text();
-        $('.preview-chat-open').text("last seen today at " + timeStampOpenChatActive);
-
+        if (takeElementToOpenChat != "") {
+            putElementToPreview.text(takeElementToOpenChat);
         };
     });
 };
 
-function lastChatTextUpdate() {
-    $('.chat').each(function() {
-        var dataNumbers = $(this).data('chat');
-        // console.log(timeChat);
-        var lastChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find('.message:last-child .mss-text').text();
-        // console.log(timeStampOpenChat);
-        var chatPreview = $('.chat[data-chat*='+ dataNumbers +']').find('.chat-preview');
-        // console.log(timeStampChat);
-        if (chatPreview != "") {
-            chatPreview.text(lastChat);
-        };
-    });
-};
+function updatePreviews() {
+    // update timestamp in chat-last-update
+    updateChatElement('.message:last-child .timestamp','.chat-last-update');
+    // update timestamp in preview-chat-open
+    var timeStampOpenChatActive = $('.mss-scroll-bar.active').find('.message.received:last-child .timestamp').text();
+    $('.preview-chat-open').text("last seen today at " + timeStampOpenChatActive);
+    // update chat-preview
+    updateChatElement('.message:last-child .mss-text','.chat-preview');
+}
 
 function alternateOpening(clickedSelector,selector,toggClass) {
     if (clickedSelector.hasClass(toggClass)) {
@@ -169,9 +162,8 @@ function createMsg() {
         scrollLastItem('.mss-scroll-bar.active');
         setTimeout(function () {
             messagesSender("received","Ok");
+            updatePreviews();
             scrollLastItem('.mss-scroll-bar.active');
-            timestamp();
-            lastChatTextUpdate();
         }, 1000);
     };
 };
