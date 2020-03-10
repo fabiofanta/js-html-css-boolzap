@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
-    toggleIcon();
+    toggleIcon(); // show send button if text is keep on #message-input
 
     $('#message-input').focus(function () {
-        toggleIcon();
+        toggleIcon(); // toggle send button when #message-input is focus
     });
 
 // input search bar
 
-    $(".input-bar i").click(function() {
+    $(".input-bar i").click(function() { //appear-disappear input search bar
         addRemoveClass();
     });
 
@@ -18,10 +18,12 @@ $(document).ready(function() {
 
 // messages sent/received
 
-    $("#microphone").click(function() {
+    $("#microphone").click(function() { //send message by pushing send button
         createMsg();
         toggleIcon();
     });
+
+//send message by pushing 'enter'
 
     $("#message-input").keyup(function(event) {
         toggleIcon();
@@ -55,7 +57,7 @@ $(document).ready(function() {
             if ($(this).data('chat') == self.data('chat') ) {
                 $('.mss-scroll-bar').removeClass('active');
                 $(this).addClass('active');
-                chatLink(self);
+                chatLink(self); // update top bar right contents (timestamp etc)
             };
         });
     });
@@ -66,7 +68,7 @@ $(document).ready(function() {
         alternateOpening($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
         event.stopPropagation();
         // console.log($(this).siblings('.dropdown-menu'),$('.dropdown-menu'),'open');
-        scrollLastItem('.mss-scroll-bar.active');
+        scrollLastItem('.mss-scroll-bar.active'); 
 
     });
 
