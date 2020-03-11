@@ -1,5 +1,21 @@
 $(document).ready(function() {
 
+    // object
+    
+    var alfonso = {name:'Alfonso',lastSeen:'10:26',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Wayfarers&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=Red&clotheType=BlazerSweater&clotheColor=PastelRed&eyeType=Happy&eyebrowType=RaisedExcited&mouthType=Serious&skinColor=Light', data:'1'};
+    var tommaso = {name:'Tommaso',lastSeen:'09:15',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Round&hairColor=Brown&facialHairType=Blank&clotheType=Overall&clotheColor=PastelYellow&eyeType=WinkWacky&eyebrowType=DefaultNatural&mouthType=Concerned&skinColor=Brown', data:'2'};
+    var claudia = {name:'Claudia',lastSeen:'16:23',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Sunglasses&hatColor=PastelBlue&hairColor=PastelPink&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Heather&graphicType=Cumbia&eyeType=Wink&eyebrowType=UpDownNatural&mouthType=ScreamOpen&skinColor=Pale', data:'3'};
+    var antonio = {name:'Antonio',lastSeen:'10:11',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Round&hairColor=BrownDark&facialHairType=MoustacheMagnum&facialHairColor=Red&clotheType=BlazerSweater&eyeType=Hearts&eyebrowType=RaisedExcitedNatural&mouthType=Grimace&skinColor=Light', data:'4'};
+    var boss = {name:'Boss',lastSeen:'21:18',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription01&hairColor=Blonde&facialHairType=BeardLight&facialHairColor=Blonde&clotheType=ShirtScoopNeck&clotheColor=Black&eyeType=WinkWacky&eyebrowType=UpDownNatural&mouthType=Vomit&skinColor=Pale', data:'5'};
+    var erika = {name:'Erika',lastSeen:'15:23',src:'https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Prescription01&hatColor=Blue03&hairColor=Platinum&facialHairType=Blank&facialHairColor=Black&clotheType=ShirtCrewNeck&clotheColor=PastelOrange&eyeType=Cry&eyebrowType=RaisedExcitedNatural&mouthType=Tongue&skinColor=Pale', data:'6'};
+    var paola = {name:'Paola',lastSeen:'11:11',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hatColor=Blue02&hairColor=PastelPink&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=Heather&graphicType=Skull&eyeType=Cry&eyebrowType=FlatNatural&mouthType=Serious&skinColor=Yellow', data:'7'};
+    var fabio = {name:'Fabio',lastSeen:'18:21',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Kurt&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=BlondeGolden&clotheType=Hoodie&clotheColor=Red&graphicType=Hola&eyeType=Happy&eyebrowType=UpDown&mouthType=Concerned&skinColor=Brown', data:'7'};
+    var andrea = {name:'Andrea',lastSeen:'16:23',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBun&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardMagestic&facialHairColor=Auburn&clotheType=Overall&clotheColor=Heather&eyeType=Side&eyebrowType=Angry&mouthType=Disbelief&skinColor=Brown', data:'8'};
+    var roberto = {name:'Roberto',lastSeen:'21:18',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight2&accessoriesType=Sunglasses&hairColor=Red&facialHairType=BeardMedium&facialHairColor=Red&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Hola&eyeType=Default&eyebrowType=RaisedExcitedNatural&mouthType=Smile&skinColor=Pale', data:'9'};
+    var users = [alfonso, tommaso,claudia,antonio,boss,erika,paola,fabio,andrea,roberto];
+
+    // end object
+
     toggleIcon(); // show send button if text is keep on #message-input
 
     $('#message-input').focus(function () {
