@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+    var source = $('#template').html();
+    var template = Handlebars.compile(source);
+
     // objects
 
     var alfonso = {name:'Alfonso',lastSeen:'10:26',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Wayfarers&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=Red&clotheType=BlazerSweater&clotheColor=PastelRed&eyeType=Happy&eyebrowType=RaisedExcited&mouthType=Serious&skinColor=Light', data:'1'};
@@ -104,120 +107,118 @@ $(document).ready(function() {
         $(this).parents('.mss-container').hide();
     });
 
-});
-
 // functions
 
-function updateChatElement(fromElement,toElement) {
-    $('.chat').each(function() {
-        var dataNumbers = $(this).data('chat');
-        // console.log(timeChat);
-        var takeElementToOpenChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find(fromElement).text();
-        // console.log(timeStampOpenChat);
-        var putElementToPreview = $('.chat[data-chat*='+ dataNumbers +']').find(toElement);
-        // console.log(timeStampChat);
-        if (takeElementToOpenChat != "") {
-            putElementToPreview.text(takeElementToOpenChat);
+    function updateChatElement(fromElement,toElement) {
+        $('.chat').each(function() {
+            var dataNumbers = $(this).data('chat');
+            // console.log(timeChat);
+            var takeElementToOpenChat = $('.mss-scroll-bar[data-chat*='+ dataNumbers +']').find(fromElement).text();
+            // console.log(timeStampOpenChat);
+            var putElementToPreview = $('.chat[data-chat*='+ dataNumbers +']').find(toElement);
+            // console.log(timeStampChat);
+            if (takeElementToOpenChat != "") {
+                putElementToPreview.text(takeElementToOpenChat);
+            };
+        });
+    };
+
+    function updatePreviews() {
+        // update timestamp in chat-last-update
+        updateChatElement('.message:last-child .timestamp','.chat-last-update');
+        // update timestamp in preview-chat-open
+        var timeStampOpenChatActive = $('.mss-scroll-bar.active').find('.message.received:last-child .timestamp').text();
+        $('.preview-chat-open').text("last seen today at " + timeStampOpenChatActive);
+        // update chat-preview
+        updateChatElement('.message:last-child .mss-text','.chat-preview');
+    }
+
+    function alternateOpening(clickedSelector,selector,toggClass) {
+        if (clickedSelector.hasClass(toggClass)) {
+            clickedSelector.toggleClass(toggClass);
+        } else {
+            selector.removeClass(toggClass);
+            clickedSelector.toggleClass(toggClass);
         };
-    });
-};
-
-function updatePreviews() {
-    // update timestamp in chat-last-update
-    updateChatElement('.message:last-child .timestamp','.chat-last-update');
-    // update timestamp in preview-chat-open
-    var timeStampOpenChatActive = $('.mss-scroll-bar.active').find('.message.received:last-child .timestamp').text();
-    $('.preview-chat-open').text("last seen today at " + timeStampOpenChatActive);
-    // update chat-preview
-    updateChatElement('.message:last-child .mss-text','.chat-preview');
-}
-
-function alternateOpening(clickedSelector,selector,toggClass) {
-    if (clickedSelector.hasClass(toggClass)) {
-        clickedSelector.toggleClass(toggClass);
-    } else {
-        selector.removeClass(toggClass);
-        clickedSelector.toggleClass(toggClass);
     };
-};
 
-function chatLink(position) {
-    var chatInfoName = $(position).find('.chat-name').text();
-    var chatInfoLastSeen = $(position).find('.chat-last-update').text();
-    var chatInfoPic = $(position).find('.left-chat img').attr('src');
-    // console.log(chatInfoPic);
-    $('.name-chat-open').text(chatInfoName);
-    $('.preview-chat-open').text("last seen today at " + chatInfoLastSeen);
-    $('.left-chat-open img').attr("src",chatInfoPic);
-};
-
-function toggleIcon() {
-    if ($('#message-input').val().length > 0 ) {
-        $('#microphone').removeClass('fas fa-microphone');
-        $('#microphone').addClass('fas fa-paper-plane');
-        // console.log($('#message-input').val().length);
-    } else {
-        $('#microphone').removeClass('fas fa-paper-plane');
-        $('#microphone').addClass('fas fa-microphone');
+    function chatLink(position) {
+        var chatInfoName = $(position).find('.chat-name').text();
+        var chatInfoLastSeen = $(position).find('.chat-last-update').text();
+        var chatInfoPic = $(position).find('.left-chat img').attr('src');
+        // console.log(chatInfoPic);
+        $('.name-chat-open').text(chatInfoName);
+        $('.preview-chat-open').text("last seen today at " + chatInfoLastSeen);
+        $('.left-chat-open img').attr("src",chatInfoPic);
     };
-};
 
+    function toggleIcon() {
+        if ($('#message-input').val().length > 0 ) {
+            $('#microphone').removeClass('fas fa-microphone');
+            $('#microphone').addClass('fas fa-paper-plane');
+            // console.log($('#message-input').val().length);
+        } else {
+            $('#microphone').removeClass('fas fa-paper-plane');
+            $('#microphone').addClass('fas fa-microphone');
+        };
+    };
 
-function messagesSender(sentReceived,text) {
-    var source = $("#template").html();
-    var template = Handlebars.compile(source);
-    var timer = time();
-    var messageContent = { mssText:text, timestamp:timer, messageClass:sentReceived };
-    var message = template(messageContent);
-    $(".mss-scroll-bar.active").append(message);
-};
+    function messagesSender(sentReceived,text) {
+        var timer = time();
+        var messageContent = { mssText:text, timestamp:timer, messageClass:sentReceived };
+        var message = template(messageContent);
+        $(".mss-scroll-bar.active").append(message);
+    };
 
-function createMsg() {
-    var nomeInput = $("#message-input").val().trim();
-    $("#message-input").val('');
-    if (nomeInput !='') {
-        messagesSender("sent",nomeInput);
-        scrollLastItem('.mss-scroll-bar.active');
-        setTimeout(function () {
-            messagesSender("received","Ok");
-            updatePreviews();
+    function createMsg() {
+        var nomeInput = $("#message-input").val().trim();
+        $("#message-input").val('');
+        if (nomeInput !='') {
+            messagesSender("sent",nomeInput);
             scrollLastItem('.mss-scroll-bar.active');
-        }, 1000);
-    };
-};
-
-function scrollLastItem(element) {
-    var pixelScroll = $(element).prop('scrollHeight');
-    $(element).scrollTop(pixelScroll);
-};
-
-function addRemoveClass(add,remove) {
-    $(".input-bar").removeClass(remove);
-    $(".input-bar").addClass(add);
-}
-
-function closeInputMenu() {
-    addRemoveClass("hide","show")
-    $("#contact-search").val('');
-    $(".chat").removeClass("hide");
-    $(".chat").addClass("show");
-};
-
-function openInputMenu() {
-    addRemoveClass("show","hide")
-    $("#contact-search").focus();
-};
-
-function time() {
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-
-    if (minutes < 10) {
-        var hoursMinutes = hours + ":" + 0 + "" + minutes;
-    } else {
-        var hoursMinutes = hours + ":" + minutes;
+            setTimeout(function () {
+                messagesSender("received","Ok");
+                updatePreviews();
+                scrollLastItem('.mss-scroll-bar.active');
+            }, 1000);
+        };
     };
 
-    return hoursMinutes;
-};
+    function scrollLastItem(element) {
+        var pixelScroll = $(element).prop('scrollHeight');
+        $(element).scrollTop(pixelScroll);
+    };
+
+    function addRemoveClass(add,remove) {
+        $(".input-bar").removeClass(remove);
+        $(".input-bar").addClass(add);
+    }
+
+    function closeInputMenu() {
+        addRemoveClass("hide","show")
+        $("#contact-search").val('');
+        $(".chat").removeClass("hide");
+        $(".chat").addClass("show");
+    };
+
+    function openInputMenu() {
+        addRemoveClass("show","hide")
+        $("#contact-search").focus();
+    };
+
+    function time() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+
+        if (minutes < 10) {
+            var hoursMinutes = hours + ":" + 0 + "" + minutes;
+        } else {
+            var hoursMinutes = hours + ":" + minutes;
+        };
+
+        return hoursMinutes;
+    };
+
+
+});
