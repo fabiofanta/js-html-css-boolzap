@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    // object
-    
+    // objects
+
     var alfonso = {name:'Alfonso',lastSeen:'10:26',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortRound&accessoriesType=Wayfarers&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=Red&clotheType=BlazerSweater&clotheColor=PastelRed&eyeType=Happy&eyebrowType=RaisedExcited&mouthType=Serious&skinColor=Light', data:'1'};
     var tommaso = {name:'Tommaso',lastSeen:'09:15',src:'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Round&hairColor=Brown&facialHairType=Blank&clotheType=Overall&clotheColor=PastelYellow&eyeType=WinkWacky&eyebrowType=DefaultNatural&mouthType=Concerned&skinColor=Brown', data:'2'};
     var claudia = {name:'Claudia',lastSeen:'16:23',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Sunglasses&hatColor=PastelBlue&hairColor=PastelPink&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Heather&graphicType=Cumbia&eyeType=Wink&eyebrowType=UpDownNatural&mouthType=ScreamOpen&skinColor=Pale', data:'3'};
@@ -14,7 +14,10 @@ $(document).ready(function() {
     var roberto = {name:'Roberto',lastSeen:'21:18',src:'https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight2&accessoriesType=Sunglasses&hairColor=Red&facialHairType=BeardMedium&facialHairColor=Red&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Hola&eyeType=Default&eyebrowType=RaisedExcitedNatural&mouthType=Smile&skinColor=Pale', data:'9'};
     var users = [alfonso, tommaso,claudia,antonio,boss,erika,paola,fabio,andrea,roberto];
 
-    // end object
+    // end objects
+
+    //handlebars message creation template
+
 
     toggleIcon(); // show send button if text is keep on #message-input
 
@@ -161,11 +164,11 @@ function toggleIcon() {
 
 
 function messagesSender(sentReceived,text) {
+    var source = $("#template").html();
+    var template = Handlebars.compile(source);
     var timer = time();
-    var message = $('.template .message').clone();
-    message.addClass(sentReceived);
-    message.find('.mss-text').text(text);
-    message.find('.timestamp').text(timer);
+    var messageContent = { mssText:text, timestamp:timer, messageClass:sentReceived };
+    var message = template(messageContent);
     $(".mss-scroll-bar.active").append(message);
 };
 
