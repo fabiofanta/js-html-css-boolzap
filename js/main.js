@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    var source = $('#template').html();
-    var template = Handlebars.compile(source);
 
     // objects
 
@@ -19,7 +17,21 @@ $(document).ready(function() {
 
     // end objects
 
-    //handlebars message creation template
+    //handlebars  templates
+
+    var source = $('#template').html();
+    var template = Handlebars.compile(source);
+    var sourceLeftChat = $('#template-leftchat').html();
+    var templateLeftChat = Handlebars.compile(sourceLeftChat);
+
+    // left-side chat-menu , from object to handlebars template
+
+
+    for (var i = 0; i < users.length; i++) {
+        var chatContent = users[i];
+        var message = templateLeftChat(chatContent);
+        $(".chat-menu").append(message);
+    };
 
 
     toggleIcon(); // show send button if text is keep on #message-input
