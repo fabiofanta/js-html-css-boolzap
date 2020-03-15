@@ -90,7 +90,7 @@
  /* end main container */
  /* start left side */
   .container-left {
-      width: 500px;
+      width: 40%;
   }
 
   .right-buttons i {
@@ -229,18 +229,18 @@
 /* end left side */
 /* start right side */
   .start-page-right {
-      width: calc(100% - 500px);
+      width: 60%;
       background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/whatsapp-chat-background.jpg');
   }
 
   .container-right {
-      width: calc(100% - 500px);
+      width: 60%;
       height: 100%;
       display: none;
       flex-direction: column;
       justify-content: space-between;
       position: absolute;
-      left: 500px;
+      left: 40%;
       top: 0;
 
   }
