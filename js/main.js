@@ -85,6 +85,7 @@ $(document).ready(function() {
 
     $('.chat').click(function() {
         var data = $(this).data('chat');
+        $('.container-right').addClass('show');
         $('.mss-scroll-bar').data("chat", data);
         chatLink(this); // right top-bar link
         $(".mss-scroll-bar").text(''); // delete mss.scroll-bar
