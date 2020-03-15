@@ -437,7 +437,7 @@
         padding: 10px 10px;
     }
 
-    .top-stripe,.bottom-stripe,.get-notified-bar,.start-page-right {
+    .get-notified-bar,.start-page-right {
         display: none;
     }
 
