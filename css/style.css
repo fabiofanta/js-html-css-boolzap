@@ -427,12 +427,28 @@
         left: 0;
     }
 
+    .container-right .fa-search,.container-right .fa-paperclip {
+        display: none;
+    }
+
     .get-notified-bar {
-        visibility: hidden;
+        display: none;
     }
 
     .left-chat-open::before {
         display: block;
+    }
+
+    .mss-scroll-bar {
+        padding: 10px 10px;
+    }
+
+    .top-stripe,.bottom-stripe {
+        display: none;
+    }
+
+    .chat-menu {
+        height: calc(100% - 130px);
     }
 
   }
