@@ -90,7 +90,7 @@
  /* end main container */
  /* start left side */
   .container-left {
-      width: 35%;
+      width: 40%;
   }
 
   .right-buttons i {
@@ -229,20 +229,28 @@
 /* end left side */
 /* start right side */
   .start-page-right {
-      width: 65%;
+      width: 60%;
       background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/whatsapp-chat-background.jpg');
   }
 
   .container-right {
-      width: 65%;
+      width: 60%;
       height: 100%;
       display: none;
       flex-direction: column;
       justify-content: space-between;
       position: absolute;
-      left: 35%;
+      left: 40%;
       top: 0;
+  }
 
+  .left-chat-open::before {
+      display: none;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: '\f060';
+      padding-right: 10px;
+      cursor: pointer;
   }
 
   .container-right .top-bar i {
@@ -396,4 +404,35 @@
 
   .open {
       display: block;
+  }
+
+  @media screen and (max-width:768px) {
+    .container {
+        width:100%;
+        height: 100%;
+    }
+
+    .container-left {
+        width:100%;
+        height: 100%;
+    }
+
+    .start-page-right {
+        display: none;
+    }
+
+    .container-right {
+        width: 100%;
+        height: 100%;
+        left: 0;
+    }
+
+    .get-notified-bar {
+        visibility: hidden;
+    }
+
+    .left-chat-open::before {
+        display: block;
+    }
+
   }

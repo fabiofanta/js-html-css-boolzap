@@ -85,6 +85,7 @@ $(document).ready(function() {
 
     $('.chat').click(function() {
         var data = $(this).data('chat');
+        mediaQuery();
         $('.container-right').addClass('show');
         $('.mss-scroll-bar').data("chat", data);
         chatLink(this); // right top-bar link
@@ -92,6 +93,13 @@ $(document).ready(function() {
         mssLoader(data); // load messages from array
 
         // update top bar right contents (timestamp etc)
+    });
+
+    // close chat media-query max-width:768px
+
+    $('.left-chat-open').before().click(function() {
+        $('.container-left').toggleClass('hide');
+        $('.container-right').toggleClass('show');
     });
 
 // dropdown menu
@@ -116,6 +124,7 @@ $(document).ready(function() {
     $(document).on('click','.mss-delete',function() {
         $(this).parents('.mss-container').hide();
     });
+
 
 // functions
 
@@ -233,6 +242,14 @@ $(document).ready(function() {
         addRemoveClass("show","hide")
         $("#contact-search").focus();
     };
+
+    function mediaQuery() {
+        var x = window.matchMedia("(max-width: 768px)")
+        if (x.matches) { // If media query matches
+            $('.container-left').toggleClass('hide');
+            $('.container-right').toggleClass('show');
+    };
+}
 
     function time() {
         var date = new Date();
